@@ -54,6 +54,13 @@
   src: url('/fonts/Oswald/Oswald-SemiBold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+
 :root {
   --primary-100: #008000;
   --primary-200: #06A106;
@@ -69,6 +76,8 @@
   --dark-900: #FAFAFA;
   --white: #FFFFFF;
   --black: #000000;
+
+  --z-index-overlap: 1;
 }
 
 * {
@@ -132,10 +141,11 @@ p {
 }
 
 .decor {
+  position: absolute;
   width: 250px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: var(--primary-600);
+  background-color: var(--primary-700);
 }
 .decor--small {
   width: 150px;
@@ -160,6 +170,9 @@ p {
 }
 
 .button {
+  display: block;
+  width: fit-content;
+
   padding: 10px 30px;
   border-radius: 10px;
   
@@ -167,12 +180,14 @@ p {
   font-weight: 500;
   font-family: 'Noto Sans';
   color: var(--dark-300);
+  letter-spacing: 0px;
+  line-height: 1.1;
 
   border: 1px solid var(--dark-700);
   background-color: var(--white);
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.3s background-color, color, border-color;
 }
 .button--with-icon {
   display: flex;
@@ -262,11 +277,12 @@ p {
   padding-bottom: 10px;
 }
 
+
 .header {
   position: absolute;
   top: 0;
   left: 0;
-  
+
   width: 100%;
   padding: 30px 0px;
 }
@@ -275,7 +291,6 @@ p {
   align-items: center;
   justify-content: space-between;
 }
-
 .nav {
   display: flex;
   align-items: center;
@@ -309,4 +324,59 @@ p {
   left: 0%;
   width: 100%;
   opacity: 1;
+}
+
+
+.introduction {
+  height: 100%;
+}
+.introduction .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headline {
+  color: var(--dark-100);
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+}
+.headline span {
+  color: var(--primary-100);
+}
+.introduction__text {
+  margin-top: 30px;
+
+  font-family: 'Montserrat';
+  color: var(--dark-100);
+  font-size: 24px;
+}
+.introduction__button {
+  margin-top: 50px;
+}
+
+.introduction-image {
+  flex: 0 0 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introduction-image__content {
+  position: relative;
+  flex: 0 0 auto;
+}
+.introduction-image__content img {
+  position: relative;
+  z-index: var(--z-index-overlap);
+}
+.introduction__decor-1 {
+  top: 60%;
+  left: -60%;
+}
+.introduction__decor-2 {
+  top: 15%;
+  right: -60%;
 }
