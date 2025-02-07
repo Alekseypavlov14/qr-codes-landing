@@ -146,10 +146,41 @@ p {
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--primary-700);
+
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 .decor--small {
   width: 150px;
-  aspect-ratio: 1;
+}
+.decor--pulse-up {
+  animation-name: decor-pulse-up;
+}
+.decor--pulse-down {
+  animation-name: decor-pulse-down;
+}
+@keyframes decor-pulse-up {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes decor-pulse-down {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 .chip {
@@ -370,6 +401,7 @@ p {
 }
 .introduction-image__content img {
   position: relative;
+  max-width: 200px;
   z-index: var(--z-index-overlap);
 }
 .introduction__decor-1 {
