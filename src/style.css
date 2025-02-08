@@ -120,6 +120,9 @@ input:focus {
 p {
   margin: 0;
 }
+.label {
+  margin: 0;
+}
 
 /* ========== UI Kit ========== */
 .container {
@@ -127,6 +130,21 @@ p {
   max-width: 1150px;
   padding: 0px 20px;
   margin: 0 auto;
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+.section__title {
+  color: var(--dark-100);
+  font-family: 'Noto Sans';
+  text-align: center;
+  font-weight: 600;
+  font-size: 48px;
+}
+.section__content {
+  margin-top: 80px;
 }
 
 .logo {
@@ -183,13 +201,20 @@ p {
   }
 }
 
+.chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .chip {
-  padding: 15px 30px;
+  padding: 10px 20px;
   border-radius: 15px;
 
   font-size: 24px;
   font-family: 'Noto Sans';
   color: var(--dark-100);
+  line-height: 1.1;
   user-select: none;
   
   border: 1px solid var(--dark-500);
@@ -279,7 +304,25 @@ p {
   border: 1px solid var(--dark-100);
 }
 
+.input-label {
+  font-family: 'Roboto';
+  color: var(--dark-300);
+  line-height: 1.4;
+  font-size: 18px;
+}
+
 @media (width <= 450px) {
+  .section {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  .section__title {
+    font-size: 24px;
+  }
+  .section__content {
+    margin-top: 40px;
+  }
+
   .logo {
     font-size: 24px;
   }
@@ -296,6 +339,10 @@ p {
     height: 40px;
   }
   .input__control {
+    font-size: 14px;
+  }
+
+  .input-label {
     font-size: 14px;
   }
 }
@@ -411,4 +458,24 @@ p {
 .introduction__decor-2 {
   top: 15%;
   right: -60%;
+}
+
+
+.demo-form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.demo-form__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.demo-form-field {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
