@@ -22,7 +22,7 @@ const errorCorrectionField = document.getElementById('demo-form-field-error-corr
 const errorCorrectionFieldOptions = Array.from(errorCorrectionField.querySelectorAll(`[${optionValueAttribute}]`))
 
 const qrCodeContainer = document.getElementById('demo-result-qr-code-container')
-const qrCodeCanvasSelector = '#demo-result-qr-code-container'
+const qrCodeContainerSelector = '#demo-result-qr-code-container'
 
 let designValue = defaultDesign
 let errorCorrectionValue = defaultLightColor
@@ -81,7 +81,7 @@ function updateQRCode() {
   printer.setDesign(designValue)
 
   qrCodeContainer.innerHTML = ''
-  printer.print(qrCode)(qrCodeCanvasSelector)
+  printer.print(qrCode)(qrCodeContainerSelector)
 }
 
 function updateDesignChips(value) {
