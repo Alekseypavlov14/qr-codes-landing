@@ -311,6 +311,14 @@ p {
   font-size: 18px;
 }
 
+.external {
+  color: var(--primary-200);
+  transition: 0.3s;
+}
+.external:hover {
+  color: var(--primary-500);
+}
+
 @media (width <= 450px) {
   .section {
     padding-top: 30px;
@@ -469,13 +477,17 @@ p {
 }
 .demo-form__row {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  flex-direction: column;
+  gap: 10px;
 }
 .demo-form-field {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.demo-form__hint {
+  font-family: 'Roboto';
+  color: var(--dark-500);
+  font-size: 14px;
 }
