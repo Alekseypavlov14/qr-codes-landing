@@ -45,8 +45,8 @@
             <div class="introduction-image__content">
               <img src="./images/introduction-phone.png" alt="QR Code">
 
-              <div class="decor decor--pulse-up introduction__decor-1"></div>
-              <div class="decor decor--pulse-down introduction__decor-2"></div>
+              <div class="decor decor-1 decor--pulse-up"></div>
+              <div class="decor decor-2 decor--pulse-down"></div>
             </div>
           </div>
         </div>
@@ -90,9 +90,10 @@
 
             <div class="demo-form__row">
               <div class="demo-form__hint">
-                Hint: use free <a class="external" href="https://colorhunt.co">Color Hunt</a> to choose color
-                combination and <a class="external" href="https://imagecolorpicker.com">Image Color Picker</a> to pick
-                color from your image
+                Hint: use free <a class="external" href="https://colorhunt.co" target="_blank">Color Hunt</a>
+                to choose color combination and
+                <a class="external" href="https://imagecolorpicker.com" target="_blank">Image Color Picker</a>
+                to pick color from your image
               </div>
               <div class="demo-form__hint">
                 Hint: write "transparent" instead of color to make it transparent
@@ -127,7 +128,33 @@
             </div>
           </form>
 
-          <div class="demo-result"></div>
+          <div class="demo-result">
+            <div class="demo-result-content">
+              <div class="demo-result-qr-code">
+                <div class="demo-result-qr-code-placeholder">
+                  <p class="demo-result-qr-code-placeholder__text">
+                    Your QR Code <br>
+                    will be here
+                  </p>
+                </div>
+              </div>
+
+              <div class="demo-result-download">
+                <button class="button button--with-icon">
+                  <img src="/images/download-icon.svg" alt="download">
+                  <span class="button__text">PNG</span>
+                </button>
+
+                <button class="button button--with-icon">
+                  <img src="/images/download-icon.svg" alt="download">
+                  <span class="button__text">JPEG</span>
+                </button>
+              </div>
+
+              <div class="decor decor-1"></div>
+              <div class="decor decor-2"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -146,6 +173,7 @@
               <h3 class="developer-card__title">Yevhenii Pavlov</h3>
               <h4 class="developer-card__subtitle">Frontend</h4>
             </div>
+
             <div class="developer-card">
               <div class="developer-card__image">
                 <img src="public/images/oleksii-pavlov-photo.png" alt="Oleksii Pavlov">
@@ -154,6 +182,7 @@
               <h3 class="developer-card__title">Oleksii Pavlov</h3>
               <h4 class="developer-card__subtitle">Core developer</h4>
             </div>
+
             <div class="developer-card">
               <div class="developer-card__image">
                 <img src="public/images/dmytro-pavlov-photo.png" alt="Dmytro Pavlov">
@@ -172,14 +201,14 @@
         <h2 class="section__title">Motivation</h2>
 
         <div class="section__content">
-          <div class="motivation-text">
-            Information should always be accessible, and interaction should remain effortless, 
+          <p class="motivation-text">
+            Information should always be accessible, and interaction should remain effortless,
             which is why our website is designed to make working with QR Codes simple and completely free.
             Unlike most online generators that create QR Codes with temporary access—rendering the data
             inaccessible after a certain period—we believe this limitation is a problem. To fix it,
             we created a platform where QR Codes remain active forever, with no hidden fees or restrictions.
             Our mission is to provide a truly free, reliable, and user-friendly solution for everyone.
-          </div>
+          </p>
         </div>
       </div>
     </section>
