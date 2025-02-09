@@ -381,7 +381,7 @@ p {
 
 .main {
   width: 100%;
-  height: min(100dvh, 1000px);
+  height: clamp(700px, 100dvh, 1000px);
   padding-bottom: 10px;
 }
 
