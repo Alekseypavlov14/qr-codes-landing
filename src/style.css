@@ -527,3 +527,31 @@ p {
   font-size: 24px;
   text-align: center;
 }
+
+
+.footer {
+  padding: 60px 0;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  font-family: 'Roboto';
+  font-size: 18px;
+}
+.footer-content-block__title {
+  font-size: 20px;
+}
+.footer-content-block__links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+  margin-top: 5px;
+}
