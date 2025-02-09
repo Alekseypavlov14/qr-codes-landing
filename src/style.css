@@ -274,6 +274,10 @@ p {
   align-items: center;
   gap: 10px;
 }
+.button--centered {
+  display: flex;
+  justify-content: center;
+}
 .button--filled {
   background-color: var(--primary-300);
   border-color: var(--primary-300);
@@ -352,7 +356,7 @@ p {
     font-size: 24px;
   }
   .section__content {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .logo {
@@ -365,10 +369,12 @@ p {
 
   .chip {
     padding: 10px 20px;
+    font-size: 16px;
   }
 
   .button {
     padding: 10px 15px;
+    font-size: 18px;
   }
 
   .input {
@@ -556,13 +562,14 @@ p {
 }
 .demo-result-content {
   position: relative;
+  flex: 1 1 auto;
+  max-width: 400px;
 }
 .demo-result-qr-code {
   position: relative;
   z-index: var(--z-index-overlap);
 
   width: 100%;
-  max-width: 400px;
   aspect-ratio: 1;
   border-radius: 20px;
   
@@ -593,6 +600,9 @@ p {
   align-items: center;
   gap: 20px;
 }
+.demo-result-download .button {
+  flex: 1 1 auto;
+}
 .demo-result .decor-1 {
   bottom: -10%;
   left: -30%;
@@ -607,6 +617,9 @@ p {
     align-items: center;
     gap: 40px;
   }
+  .demo-result {
+    width: 100%;
+  }
 }
 @media (width <= 450px) {
   .demo-form {
@@ -617,16 +630,27 @@ p {
 
 .developer-cards {
   position: relative;
-  margin-top: 80px;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 40px;
 }
 .developer-card {
   position: relative;
   z-index: var(--z-index-overlap);
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.developer-card__image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.developer-card__image img {
+  max-width: 100%;
 }
 .developer-card__title {
   margin-top: 20px;
@@ -648,6 +672,15 @@ p {
   top: 5%;
   right: -10%;
 }
+@media (width <= 450px) {
+  .developer-card__title {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  .developer-card__subtitle {
+    font-size: 18px;
+  }
+}
 
 
 .motivation {
@@ -665,20 +698,23 @@ p {
 
 
 .footer {
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 80px;
 }
 .footer .container {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 .footer-content {
   display: flex;
-  justify-content: center;
   gap: 50px;
 
   font-family: 'Roboto';
   font-size: 18px;
+  color: var(--dark-100);
 }
 .footer-content-block__title {
   font-size: 20px;
@@ -688,4 +724,29 @@ p {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.footer-content-block-link {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: var(--dark-300);
+}
+@media (width <= 1000px) {
+  .footer .container {
+    flex-direction: column;
+  }
+  .footer-content {
+    flex-wrap: wrap;
+  }
+}
+@media (width <= 450px) {
+  .footer {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .footer .container {
+    gap: 30px;
+  }
+  .footer-content {
+    gap: 30px;
+  }
 }
