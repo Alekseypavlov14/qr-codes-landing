@@ -124,6 +124,28 @@ p {
   margin: 0;
 }
 
+/* ========== Utilities ========== */
+@media not (width >= 1100px) {
+  .device-desktop {
+    display: none !important;
+  }
+}
+@media not (800px <= width <= 1100px) {
+  .device-laptop {
+    display: none !important;
+  }
+}
+@media not (450 <= width <= 800px) {
+  .device-tablet {
+    display: none !important;
+  }
+}
+@media not (width <= 450px) {
+  .device-mobile {
+    display: none !important;
+  }
+}
+
 /* ========== UI Kit ========== */
 .container {
   width: 100%;
@@ -459,11 +481,11 @@ p {
   max-width: 200px;
   z-index: var(--z-index-overlap);
 }
-.introduction .decor-1 {
+.introduction-image__content .decor-1 {
   top: 60%;
   left: -60%;
 }
-.introduction .decor-2 {
+.introduction-image__content .decor-2 {
   top: 15%;
   right: -60%;
 }
@@ -618,9 +640,8 @@ p {
   font-size: 20px;
 }
 .footer-content-block__links {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  
-  margin-top: 5px;
 }
