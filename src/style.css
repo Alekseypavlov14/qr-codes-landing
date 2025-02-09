@@ -550,11 +550,17 @@ p {
 
 
 .developer-cards {
+  position: relative;
   margin-top: 80px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+.developer-card {
+  position: relative;
+  z-index: var(--z-index-overlap);
 }
 .developer-card__title {
   margin-top: 20px;
@@ -567,6 +573,14 @@ p {
   text-align: center;
   font-family: 'Noto Sans';
   font-size: 24px;
+}
+.developer-cards .decor-1 {
+  top: -20%;
+  left: -5%;
+}
+.developer-cards .decor-2 {
+  top: 5%;
+  right: -10%;
 }
 
 
