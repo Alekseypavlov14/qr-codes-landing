@@ -144,7 +144,7 @@ p {
   font-size: 48px;
 }
 .section__content {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .logo {
@@ -512,4 +512,18 @@ p {
   text-align: center;
   font-family: 'Noto Sans';
   font-size: 24px;
+}
+
+
+.motivation {
+  background-color: var(--primary-900);
+}
+.motivation-text {
+  width: 100%;
+  max-width: 890px;
+  margin: 0 auto;
+
+  font-family: 'Noto Sans';
+  font-size: 24px;
+  text-align: center;
 }
