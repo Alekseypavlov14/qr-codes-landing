@@ -158,9 +158,12 @@ p {
   width: 100%;
   padding-top: 60px;
   padding-bottom: 100px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 .section__title {
+  position: relative;
+  z-index: var(--z-index-overlap);
+
   color: var(--dark-100);
   font-family: 'Noto Sans';
   text-align: center;
@@ -523,6 +526,8 @@ p {
   align-items: flex-start;
 }
 .demo-form {
+  position: relative;
+  z-index: var(--z-index-overlap);
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -595,6 +600,18 @@ p {
 .demo-result .decor-2 {
   top: -10%;
   right: -30%;
+}
+@media (width <= 1000px) {
+  .demo .section__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+@media (width <= 450px) {
+  .demo-form {
+    gap: 20px;
+  }
 }
 
 
