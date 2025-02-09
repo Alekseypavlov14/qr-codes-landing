@@ -78,6 +78,7 @@
   --black: #000000;
 
   --z-index-overlap: 1;
+  --z-index-widget: 2;
 }
 
 * {
@@ -185,6 +186,9 @@ p {
   color: var(--dark-100);
 }
 
+.decor-container {
+  display: contents;
+}
 .decor {
   position: absolute;
   width: 250px;
@@ -402,6 +406,7 @@ p {
 
 .header {
   position: absolute;
+  z-index: var(--z-index-widget);
   top: 0;
   left: 0;
 
@@ -497,11 +502,11 @@ p {
   max-width: 200px;
   z-index: var(--z-index-overlap);
 }
-.main .decor-1 {
+.main__decor .decor-1 {
   top: -10%;
   right: -10%;
 }
-.main .decor-2 {
+.main__decor .decor-2 {
   right: -10%;
   bottom: 0;
 }
@@ -568,6 +573,7 @@ p {
 .demo-result-qr-code {
   position: relative;
   z-index: var(--z-index-overlap);
+  overflow: hidden;
 
   width: 100%;
   aspect-ratio: 1;
