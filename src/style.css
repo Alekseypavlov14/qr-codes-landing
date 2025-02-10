@@ -727,14 +727,18 @@ p {
   font-size: 18px;
   color: var(--dark-100);
 }
+.footer-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .footer-content-block__title {
   font-size: 20px;
 }
 .footer-content-block__links {
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 .footer-content-block-link {
   font-family: 'Roboto';
@@ -753,9 +757,6 @@ p {
   .footer {
     padding-top: 30px;
     padding-bottom: 50px;
-  }
-  .footer .container {
-    gap: 30px;
   }
   .footer-content {
     gap: 30px;
