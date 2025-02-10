@@ -5,7 +5,7 @@ const contentField = document.getElementById('demo-form-field-content')
 const downloadPNGButton = document.getElementById('qr-code-download-png')
 const downloadJPEGButton = document.getElementById('qr-code-download-jpeg')
 
-const resultSelector = '#demo-result-qr-code-container canvas'
+const qrCodeContainer = document.getElementById('demo-result-qr-code-container')
 
 const defaultFileName = 'qr-code'
 
@@ -21,17 +21,15 @@ downloadJPEGButton.addEventListener('click', () => {
 })
 
 function download() {
+  const canvas = qrCodeContainer.querySelector('canvas')
+  if (!canvas) return
+
   const value = contentField.value || defaultFileName
 
   downloader.setFileName(prepareFileName(value))
-
-  if (!validateCanvas()) return
-  downloader.download(resultSelector)
+  downloader.download(canvas)
 }
 
-function validateCanvas() {
-  return Boolean(document.querySelector(resultSelector))
-}
 function prepareFileName(value) {
   const fileName = value
     .trim()
