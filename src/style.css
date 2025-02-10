@@ -81,6 +81,15 @@
   --z-index-widget: 2;
 }
 
+::-moz-selection {
+  color: var(--white);
+  background: var(--primary-200);
+}
+::selection {
+  color: var(--white);
+  background: var(--primary-200);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -103,9 +112,6 @@ body {
 a {
   text-decoration: none;
   color: var(--dark-100);
-}
-a, button {
-  user-select: none;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -266,6 +272,7 @@ p {
   color: var(--dark-300);
   letter-spacing: 0px;
   line-height: 1.1;
+  user-select: none;
 
   border: 1px solid var(--dark-700);
   background-color: var(--white);
