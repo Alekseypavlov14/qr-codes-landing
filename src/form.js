@@ -55,7 +55,7 @@ onEnter(contentField, updateQRCode)
 onEnter(darkColorField, updateQRCode)
 onEnter(darkColorField, fillDarkIndicator)
 onEnter(lightColorField, updateQRCode)
-onEnter(darkColorField, fillLightIndicator)
+onEnter(lightColorField, fillLightIndicator)
 
 designFieldOptions.forEach(chip => {
   chip.addEventListener('click', () => {
