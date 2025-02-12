@@ -135,16 +135,24 @@
 
           <div class="demo-result">
             <div class="demo-result-content">
-              <div id="demo-result-qr-code-container" class="demo-result-qr-code">
-                <div class="demo-result-qr-code-placeholder">
+              <div class="demo-result-qr-code-container">
+                <div id="qr-code-placeholder" class="demo-result-qr-code-placeholder">
                   <p class="demo-result-qr-code-placeholder__text">
                     Your QR Code <br>
                     will be here
                   </p>
                 </div>
+
+                <div id="qr-code-canvas" class="demo-result-qr-code"></div>
+                <div id="qr-code-svg" class="demo-result-qr-code demo-result-qr-code--hidden"></div>
               </div>
 
               <div class="demo-result-download">
+                <button id="qr-code-download-svg" class="button button--centered button--with-icon">
+                  <img src="./images/download-icon.svg" alt="download">
+                  <span class="button__text">SVG</span>
+                </button>
+
                 <button id="qr-code-download-png" class="button button--centered button--with-icon">
                   <img src="./images/download-icon.svg" alt="download">
                   <span class="button__text">PNG</span>
@@ -153,6 +161,11 @@
                 <button id="qr-code-download-jpeg" class="button button--centered button--with-icon">
                   <img src="./images/download-icon.svg" alt="download">
                   <span class="button__text">JPEG</span>
+                </button>
+
+                <button id="qr-code-download-webp" class="button button--centered button--with-icon">
+                  <img src="./images/download-icon.svg" alt="download">
+                  <span class="button__text">WEBP</span>
                 </button>
               </div>
 

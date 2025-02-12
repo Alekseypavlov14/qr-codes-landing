@@ -567,6 +567,7 @@ p {
   color: var(--dark-500);
   font-size: 14px;
 }
+
 .demo-result {
   flex: 1 1 auto;
   display: flex;
@@ -577,7 +578,7 @@ p {
   flex: 1 1 auto;
   max-width: 400px;
 }
-.demo-result-qr-code {
+.demo-result-qr-code-container {
   position: relative;
   z-index: var(--z-index-overlap);
   overflow: hidden;
@@ -589,7 +590,12 @@ p {
   border: 1px solid var(--dark-700);
   background-color: var(--white);
 }
+
 .demo-result-qr-code-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: 100%;
 
@@ -604,17 +610,32 @@ p {
   color: var(--dark-500);
   text-align: center;
 }
+
+.demo-result-qr-code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-index-overlap);
+}
+.demo-result-qr-code--hidden {
+  visibility: hidden;
+}
 .demo-result-download {
   position: relative;
   z-index: var(--z-index-overlap);
 
   margin-top: 20px;
-  display: flex;
-  align-items: center;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
   gap: 20px;
 }
 .demo-result-download .button {
-  flex: 1 1 auto;
+  width: 100%;
 }
 .demo-result .decor-1 {
   bottom: -10%;

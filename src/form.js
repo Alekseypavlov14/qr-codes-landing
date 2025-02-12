@@ -1,5 +1,6 @@
-import { designCircles, designClassic, designLiquid, designLiquidOil, designOil, ERROR_CORRECTION_H, ERROR_CORRECTION_L, ERROR_CORRECTION_M, ERROR_CORRECTION_Q, Printer, QRCode } from '@oleksii-pavlov/qr-codes'
+import { canvasEngine, designCircles, designClassic, designLiquid, designLiquidOil, designOil, ERROR_CORRECTION_H, ERROR_CORRECTION_L, ERROR_CORRECTION_M, ERROR_CORRECTION_Q, Printer, QRCode, svgEngine } from '@oleksii-pavlov/qr-codes'
 
+// define constants
 const defaultDarkColor = '#000'
 const defaultLightColor = '#fff'
 const defaultDesign = designClassic
@@ -7,7 +8,9 @@ const defaultErrorCorrection = ERROR_CORRECTION_M
 
 const optionValueAttribute = 'data-value'
 const chipActiveClass = 'chip--active'
+const qrCodeHiddenClass = 'demo-result-qr-code--hidden'
 
+// get controls and elements
 const contentField = document.getElementById('demo-form-field-content')
 const darkColorField = document.getElementById('demo-form-field-dark-color')
 const lightColorField = document.getElementById('demo-form-field-light-color')
@@ -21,11 +24,15 @@ const designFieldOptions = Array.from(designField.querySelectorAll(`[${optionVal
 const errorCorrectionField = document.getElementById('demo-form-field-error-correction')
 const errorCorrectionFieldOptions = Array.from(errorCorrectionField.querySelectorAll(`[${optionValueAttribute}]`))
 
-const qrCodeContainer = document.getElementById('demo-result-qr-code-container')
+const qrCodePlaceholder = document.getElementById('qr-code-placeholder')
+const qrCodeCanvas = document.getElementById('qr-code-canvas')
+const qrCodeSVG = document.getElementById('qr-code-svg')
 
+// set state values 
 let designValue = defaultDesign
 let errorCorrectionValue = defaultLightColor
 
+// create printer 
 const printer = new Printer({
   darkColor: defaultDarkColor,
   lightColor: defaultLightColor,
@@ -33,9 +40,11 @@ const printer = new Printer({
   resolutionIncreaseCoefficient: 10
 })
 
+// initial fill 
 fillDarkIndicator()
 fillLightIndicator()
 
+// add event listeners
 contentField.addEventListener('change', updateQRCode)
 darkColorField.addEventListener('change', updateQRCode)
 darkColorField.addEventListener('change', fillDarkIndicator)
@@ -79,10 +88,31 @@ function updateQRCode() {
   printer.setLightColor(lightColor)
   printer.setDesign(designValue)
 
-  qrCodeContainer.innerHTML = ''
-  printer.print(qrCode)(qrCodeContainer)
+  hidePlaceholder()
+
+  printQRCodeWithCanvas(qrCode)
+  printQRCodeWithSVG(qrCode)
+}
+function printQRCodeWithCanvas(qrCode) {
+  clearContainer(qrCodeCanvas)
+  
+  printer.setOutput(canvasEngine)
+  printer.print(qrCode)(qrCodeCanvas)
+}
+function printQRCodeWithSVG(qrCode) {
+  clearContainer(qrCodeSVG)
+
+  printer.setOutput(svgEngine)
+  printer.print(qrCode)(qrCodeSVG)
+}
+function hidePlaceholder() {
+  qrCodePlaceholder.classList.add(qrCodeHiddenClass)
+}
+function clearContainer(container) {
+  container.innerHTML = ''
 }
 
+// utils
 function updateDesignChips(value) {
   const chips = Array.from(designField.querySelectorAll(`[${optionValueAttribute}]`))
   chips.forEach(chip => chip.classList.remove(chipActiveClass))
