@@ -4,8 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Generate unlimited QR Codes for free with QRCoder. No limitations, no hidden fees—100% free forever." />
+  <meta name="keywords"
+    content="QR Code generator, free QR Codes, unlimited QR Codes, create QR Code, download QR Code" />
+  <meta name="author" content="QRCoder Team" />
+  <link rel="canonical" href="https://qr-coder-gen.netlify.app" />
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  <title>QRCoder | Generate free forever QR Code</title>
+  <title>QRCoder | Generate Free QR Codes Forever</title>
 </head>
 
 <body>
@@ -13,11 +19,11 @@
     <main class="main">
       <header class="header">
         <div class="container">
-          <a href="/" class="logo">
+          <a href="/" class="logo" aria-label="QRCoder Home">
             <span>QR</span>Coder
           </a>
 
-          <nav class="nav hide-on-tablet hide-on-mobile">
+          <nav class="nav hide-on-tablet hide-on-mobile" aria-label="Main navigation">
             <a href="#demo" class="nav__link">Demo</a>
             <a href="#developers" class="nav__link">Developers</a>
             <a href="#motivation" class="nav__link">Motivation</a>
@@ -107,9 +113,9 @@
 
             <div class="demo-form__row">
               <div class="demo-form-field">
-                <label class="input-label">Design</label>
+                <label id="demo-form-field-design-label" class="input-label">Design</label>
 
-                <div id="demo-form-field-design" class="chips">
+                <div id="demo-form-field-design" class="chips" aria-describedby="demo-form-field-design-label">
                   <div class="chip chip--active" data-value="classic">Classic</div>
                   <div class="chip" data-value="circles">Circles</div>
                   <div class="chip" data-value="liquid">Liquid</div>
@@ -121,9 +127,9 @@
 
             <div class="demo-form__row">
               <div class="demo-form-field">
-                <label class="input-label">Minimal error correction</label>
+                <label id="demo-form-field-error-correction-label" class="input-label">Minimal error correction</label>
 
-                <div id="demo-form-field-error-correction" class="chips">
+                <div id="demo-form-field-error-correction" class="chips" aria-describedby="demo-form-field-error-correction-label">
                   <div class="chip" data-value="L">L</div>
                   <div class="chip chip--active" data-value="M">M</div>
                   <div class="chip" data-value="Q">Q</div>
@@ -240,7 +246,7 @@
 
     <footer class="footer">
       <div class="container">
-        <a href="/" class="logo">
+        <a href="/" class="logo" aria-label="QRCoder Home">
           <span>QR</span>Coder
         </a>
 
