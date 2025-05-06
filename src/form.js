@@ -97,13 +97,13 @@ function printQRCodeWithCanvas(qrCode) {
   clearContainer(qrCodeCanvas)
   
   printer.setOutput(canvasEngine)
-  printer.print(qrCode)(qrCodeCanvas)
+  printer.getInjectorByElement(qrCodeCanvas)(qrCode)
 }
 function printQRCodeWithSVG(qrCode) {
   clearContainer(qrCodeSVG)
 
   printer.setOutput(svgEngine)
-  printer.print(qrCode)(qrCodeSVG)
+  printer.getInjectorByElement(qrCodeSVG)(qrCode)
 }
 function hidePlaceholder() {
   qrCodePlaceholder.classList.add(qrCodeHiddenClass)
