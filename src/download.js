@@ -1,5 +1,5 @@
-import { Downloader, fileTypeJPEG, fileTypePNG, fileTypeWebp } from '@oleksii-pavlov/qr-codes'
-import { fileTypeSVG } from '@oleksii-pavlov/qr-codes/build/downloaders/constants'
+import { Downloader, fileTypeJPEG, fileTypePNG, fileTypeWebp, fileTypeSVG, canvasEngine, svgEngine } from '@oleksii-pavlov/qr-codes'
+import { printer, getQRCode } from './form'
 
 const contentField = document.getElementById('demo-form-field-content')
 
@@ -7,9 +7,6 @@ const downloadSVGButton = document.getElementById('qr-code-download-svg')
 const downloadPNGButton = document.getElementById('qr-code-download-png')
 const downloadJPEGButton = document.getElementById('qr-code-download-jpeg')
 const downloadWEBPButton = document.getElementById('qr-code-download-webp')
-
-const qrCodeCanvas = document.getElementById('qr-code-canvas')
-const qrCodeSVG = document.getElementById('qr-code-svg')
 
 const defaultFileName = 'qr-code'
 
@@ -33,22 +30,26 @@ downloadWEBPButton.addEventListener('click', () => {
 })
 
 function downloadFromCanvas() {
-  const canvas = qrCodeCanvas.querySelector('canvas')
-  if (!canvas) return
+  const qrCode = getQRCode()
+
+  printer.setOutput(canvasEngine)
+  const element = printer.print(qrCode)
 
   const value = contentField.value || defaultFileName
 
   downloader.setFileName(prepareFileName(value))
-  downloader.downloadFromCanvas(canvas)
+  downloader.downloadFromCanvas(element)
 }
 function downloadFromSVG() {
-  const svg = qrCodeSVG.querySelector('svg')
-  if (!svg) return
+  const qrCode = getQRCode()
+
+  printer.setOutput(svgEngine)
+  const element = printer.print(qrCode)
 
   const value = contentField.value || defaultFileName
 
   downloader.setFileName(prepareFileName(value))
-  downloader.downloadFromSVG(svg)
+  downloader.downloadFromSVG(element)
 }
 
 function prepareFileName(value) {

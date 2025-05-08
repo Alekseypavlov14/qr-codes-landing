@@ -12,6 +12,6 @@
     "vite": "^6.1.0"
   },
   "dependencies": {
-    "@oleksii-pavlov/qr-codes": "^4.0.0"
+    "@oleksii-pavlov/qr-codes": "^4.1.1"
   }
 }

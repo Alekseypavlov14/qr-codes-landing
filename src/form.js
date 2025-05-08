@@ -25,19 +25,19 @@ const errorCorrectionField = document.getElementById('demo-form-field-error-corr
 const errorCorrectionFieldOptions = Array.from(errorCorrectionField.querySelectorAll(`[${optionValueAttribute}]`))
 
 const qrCodePlaceholder = document.getElementById('qr-code-placeholder')
-const qrCodeCanvas = document.getElementById('qr-code-canvas')
-const qrCodeSVG = document.getElementById('qr-code-svg')
+const qrCodeContainer = document.getElementById('qr-code')
 
 // set state values 
 let designValue = defaultDesign
 let errorCorrectionValue = defaultLightColor
 
 // create printer 
-const printer = new Printer({
+export const printer = new Printer({
   darkColor: defaultDarkColor,
   lightColor: defaultLightColor,
   design: defaultDesign,
-  resolutionIncreaseCoefficient: 10
+  resolutionIncreaseCoefficient: 10,
+  output: canvasEngine
 })
 
 // initial fill 
@@ -75,35 +75,33 @@ errorCorrectionFieldOptions.forEach(chip => {
 })
 
 function updateQRCode() {
-  const message = contentField.value
+  const qrCode = getQRCode()
+
   const darkColor = darkColorField.value || defaultDarkColor
   const lightColor = lightColorField.value || defaultLightColor
-
-  const qrCode = QRCode.create({
-    message: message,
-    minimalErrorCorrection: errorCorrectionValue
-  })
 
   printer.setDarkColor(darkColor)
   printer.setLightColor(lightColor)
   printer.setDesign(designValue)
 
   hidePlaceholder()
-
-  printQRCodeWithCanvas(qrCode)
-  printQRCodeWithSVG(qrCode)
+  printQRCode(qrCode)
 }
-function printQRCodeWithCanvas(qrCode) {
-  clearContainer(qrCodeCanvas)
-  
+export function getQRCode() {
+  const message = contentField.value
+
+  const qrCode = QRCode.create({
+    message: message,
+    minimalErrorCorrection: errorCorrectionValue
+  })
+
+  return qrCode
+}
+function printQRCode(qrCode) {
+  clearContainer(qrCodeContainer)
+
   printer.setOutput(canvasEngine)
-  printer.getInjectorByElement(qrCodeCanvas)(qrCode)
-}
-function printQRCodeWithSVG(qrCode) {
-  clearContainer(qrCodeSVG)
-
-  printer.setOutput(svgEngine)
-  printer.getInjectorByElement(qrCodeSVG)(qrCode)
+  printer.injectContent(qrCodeContainer, qrCode)
 }
 function hidePlaceholder() {
   qrCodePlaceholder.classList.add(qrCodeHiddenClass)
